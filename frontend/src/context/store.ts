@@ -2,6 +2,12 @@ import { create } from "zustand";
 import axios from "axios";
 import { generateMockTripData, mockChatItineraryUpdate } from "../utils/mockData";
 
+// Configure axios base URL dynamically for local dev vs production Render backend
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "https://yatra-x.onrender.com" : "");
+if (API_URL) {
+  axios.defaults.baseURL = API_URL;
+}
+
 export interface Trip {
   id: string;
   destination: string;
