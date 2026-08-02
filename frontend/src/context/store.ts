@@ -186,7 +186,7 @@ export const useStore = create<StoreState>((set, get) => {
             accessibility: formData.accessibility,
             specialRequests: formData.specialRequests
           }
-        }, { timeout: 35000 });
+        }, { timeout: 60000 });
 
         clearInterval(statusInterval);
         const generatedTrip = transformDbTrip(response.data);
